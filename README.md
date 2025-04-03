@@ -2,6 +2,4 @@
 This is my project submission for data engineering zoomcamp 2025
 
 USING:
-CodeSpace:
-  Docker
-  Apache Airflow
+CodeSpace,Docker, Apache Airflow
