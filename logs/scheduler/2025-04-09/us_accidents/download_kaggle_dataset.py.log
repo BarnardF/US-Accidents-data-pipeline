@@ -2339,3 +2339,17 @@ NameError: name 'download_dataset' is not defined
 [2025-04-09T18:39:37.541+0000] {logging_mixin.py:151} INFO - [2025-04-09T18:39:37.541+0000] {dag.py:2915} INFO - Sync 1 DAGs
 [2025-04-09T18:39:37.551+0000] {logging_mixin.py:151} INFO - [2025-04-09T18:39:37.551+0000] {dag.py:3696} INFO - Setting next_dagrun for us_accidents_download to None, run_after=None
 [2025-04-09T18:39:37.564+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/us_accidents/download_kaggle_dataset.py took 0.058 seconds
+[2025-04-09T18:40:07.641+0000] {processor.py:157} INFO - Started process (PID=39) to work on /opt/airflow/dags/us_accidents/download_kaggle_dataset.py
+[2025-04-09T18:40:07.642+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/us_accidents/download_kaggle_dataset.py for tasks to queue
+[2025-04-09T18:40:07.643+0000] {logging_mixin.py:151} INFO - [2025-04-09T18:40:07.643+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/us_accidents/download_kaggle_dataset.py
+[2025-04-09T18:40:07.651+0000] {processor.py:839} INFO - DAG(s) dict_keys(['us_accidents_download']) retrieved from /opt/airflow/dags/us_accidents/download_kaggle_dataset.py
+[2025-04-09T18:40:07.672+0000] {logging_mixin.py:151} INFO - [2025-04-09T18:40:07.672+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-04-09T18:40:07.681+0000] {logging_mixin.py:151} INFO - [2025-04-09T18:40:07.681+0000] {dag.py:3696} INFO - Setting next_dagrun for us_accidents_download to None, run_after=None
+[2025-04-09T18:40:07.695+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/us_accidents/download_kaggle_dataset.py took 0.056 seconds
+[2025-04-09T18:40:37.762+0000] {processor.py:157} INFO - Started process (PID=40) to work on /opt/airflow/dags/us_accidents/download_kaggle_dataset.py
+[2025-04-09T18:40:37.763+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/us_accidents/download_kaggle_dataset.py for tasks to queue
+[2025-04-09T18:40:37.765+0000] {logging_mixin.py:151} INFO - [2025-04-09T18:40:37.765+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/us_accidents/download_kaggle_dataset.py
+[2025-04-09T18:40:37.772+0000] {processor.py:839} INFO - DAG(s) dict_keys(['us_accidents_download']) retrieved from /opt/airflow/dags/us_accidents/download_kaggle_dataset.py
+[2025-04-09T18:40:37.794+0000] {logging_mixin.py:151} INFO - [2025-04-09T18:40:37.794+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-04-09T18:40:37.804+0000] {logging_mixin.py:151} INFO - [2025-04-09T18:40:37.804+0000] {dag.py:3696} INFO - Setting next_dagrun for us_accidents_download to None, run_after=None
+[2025-04-09T18:40:37.817+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/us_accidents/download_kaggle_dataset.py took 0.057 seconds
