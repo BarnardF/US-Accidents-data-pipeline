@@ -1,6 +1,16 @@
-# US Accidents Data Pipeline
+# US Accidents Data Pipeline Project
 
-This project builds a data pipeline to process and analyze the US Accidents (2016-2023) dataset from Kaggle.
+## Project Overview
+This project will build a data pipeline to process and analyze the US Accidents (2016-2023) dataset from Kaggle. The pipeline will use batch processing to transform raw accident data into actionable insights that can help improve road safety and traffic management. The final output will be interactive dashboards highlighting accident hotspots, temporal patterns, and contributing factors.
+
+## Business Problem to Solve
+This pipeline will help address the following real-world problems:
+
+1. **Traffic Safety Improvement**: Identify high-risk accident zones and contributing factors to help authorities implement targeted safety measures.
+
+2. **Emergency Response Optimization**: Analyze temporal and seasonal patterns to optimize the deployment of emergency response resources.
+
+3. **Urban Planning Support**: Provide insights into how road design, traffic control systems, and weather conditions correlate with accident frequency and severity.
 
 ## Project Structure
 - `dags/`: Contains Apache Airflow DAG definitions
@@ -21,21 +31,6 @@ This project builds a data pipeline to process and analyze the US Accidents (201
 ## Dataset
 US Accidents (2016 - 2023) from Kaggle:
 https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents
-
-
-# US Accidents Data Pipeline Project
-
-## Project Overview
-This project will build a data pipeline to process and analyze the US Accidents (2016-2023) dataset from Kaggle. The pipeline will use batch processing to transform raw accident data into actionable insights that can help improve road safety and traffic management. The final output will be interactive dashboards highlighting accident hotspots, temporal patterns, and contributing factors.
-
-## Business Problem to Solve
-This pipeline will help address the following real-world problems:
-
-1. **Traffic Safety Improvement**: Identify high-risk accident zones and contributing factors to help authorities implement targeted safety measures.
-
-2. **Emergency Response Optimization**: Analyze temporal and seasonal patterns to optimize the deployment of emergency response resources.
-
-3. **Urban Planning Support**: Provide insights into how road design, traffic control systems, and weather conditions correlate with accident frequency and severity.
 
 ## Tech Stack
 
