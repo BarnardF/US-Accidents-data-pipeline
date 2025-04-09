@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.operators.bash import BashOperator
+from airflow.models import Variable
 import os
 import json
 
@@ -29,9 +30,9 @@ dag = DAG(
 
 def setup_kaggle_credentials(**kwargs):
     """Create Kaggle API credentials file"""
-    # Note: In production, use Airflow variables or secrets for these values
-    kaggle_username = "YOUR_KAGGLE_USERNAME"  # Replace with your Kaggle username
-    kaggle_key = "YOUR_KAGGLE_KEY"  # Replace with your Kaggle API key
+    
+    kaggle_username = Variable.get("kaggle_username")
+    kaggle_key = Variable.get("kaggle_key")  
     
     # Create .kaggle directory if it doesn't exist
     os.makedirs('/opt/airflow/.kaggle', exist_ok=True)
