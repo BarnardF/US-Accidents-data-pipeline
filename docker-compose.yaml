@@ -27,7 +27,10 @@ services:
     restart: always
 
   airflow-webserver:
-    image: apache/airflow:2.7.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+
     command: webserver
     ports:
       - "8080:8080"
@@ -59,7 +62,10 @@ services:
     restart: always
 
   airflow-scheduler:
-    image: apache/airflow:2.7.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+
     command: scheduler
     environment:
       - AIRFLOW__CORE__EXECUTOR=CeleryExecutor
@@ -81,7 +87,10 @@ services:
     restart: always
 
   airflow-worker:
-    image: apache/airflow:2.7.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+
     command: celery worker
     environment:
       - AIRFLOW__CORE__EXECUTOR=CeleryExecutor
@@ -103,7 +112,10 @@ services:
     restart: always
 
   airflow-init:
-    image: apache/airflow:2.7.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+
     entrypoint: /bin/bash
     command:
       - -c

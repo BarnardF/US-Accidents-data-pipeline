@@ -1,1 +1,7 @@
 keys.env
+test.ipynb
+data/raw/US_Accidents_March23.csv
+data.csv
+logs/dag_id=us_accidents_download
+logs/dag_processor_manager
+logs/scheduler
