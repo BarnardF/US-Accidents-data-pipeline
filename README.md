@@ -1,161 +1,241 @@
-# US Accidents Data Pipeline Project
+# US Accidents Data Analysis Pipeline
+
+![Project Banner](https://via.placeholder.com/1200x300.png?text=US+Accidents+Data+Analysis+Pipeline)
 
 ## Project Overview
-This project will build a data pipeline to process and analyze the US Accidents (2016-2023) dataset from Kaggle. The pipeline will use batch processing to transform raw accident data into actionable insights that can help improve road safety and traffic management. The final output will be interactive dashboards highlighting accident hotspots, temporal patterns, and contributing factors.
 
-## Business Problem to Solve
-This pipeline will help address the following real-world problems:
+This project implements a comprehensive data pipeline to process and analyze the US Accidents (2016-2023) dataset from Kaggle. Through batch processing techniques, raw accident data is transformed into actionable insights presented via interactive dashboards. These dashboards highlight accident hotspots, temporal patterns, and contributing factors that can drive improvements in road safety and traffic management.
 
-1. **Traffic Safety Improvement**: Identify high-risk accident zones and contributing factors to help authorities implement targeted safety measures.
+### 🏆 Key Accomplishments
 
-2. **Emergency Response Optimization**: Analyze temporal and seasonal patterns to optimize the deployment of emergency response resources.
+- Successfully implemented an end-to-end data pipeline from data acquisition to visualization
+- Created a simulation system for processing historical monthly data
+- Built BigQuery integration with optimized partitioning and clustering
+- Established the foundation for advanced analytics and visualization
 
-3. **Urban Planning Support**: Provide insights into how road design, traffic control systems, and weather conditions correlate with accident frequency and severity.
+## Business Value Delivered
 
-## Project Structure
-- `dags/`: Contains Apache Airflow DAG definitions
-- `data/`: Directory for storing data files
-  - `raw/`: Raw data files downloaded from Kaggle
-  - `processed/`: Processed data files
-- `logs/`: Airflow logs
-- `plugins/`: Custom Airflow plugins
+This pipeline addresses several real-world problems:
 
-## Setup Instructions
-1. Install Docker and Docker Compose
-2. Clone this repository
-3. Navigate to the project directory
-4. Run `docker-compose up -d`
-5. Access Airflow at http://localhost:8080 (username: airflow, password: airflow)
-6. Update your Kaggle credentials in the DAG file before running it
+1. **Traffic Safety Improvement**: The analysis identifies high-risk accident zones and contributing factors, enabling authorities to implement targeted safety measures where they're needed most.
+
+2. **Emergency Response Optimization**: Temporal and seasonal pattern analysis helps optimize the deployment of emergency response resources, potentially saving lives through faster response times.
+
+3. **Urban Planning Support**: Insights into correlations between road design, traffic control systems, and weather conditions with accident frequency provide valuable input for urban planning decisions.
 
 ## Dataset
-US Accidents (2016 - 2023) from Kaggle:
-https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents
+
+The project uses the comprehensive US Accidents (2016-2023) dataset from Kaggle, containing over 7 million records of accidents across the continental United States:
+- [US Accidents Dataset on Kaggle](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents)
 
 ## Tech Stack
 
-### Docker + Apache Airflow (Local Setup)
-- **Purpose**: Orchestrate the batch processing workflow for accident data.
-- **Setup**: Simple Docker container setup without Astronomer CLI.
-- **Processing**: Schedule weekly/monthly batch processing of accident data.
+![Tech Stack Diagram](https://via.placeholder.com/800x400.png?text=Tech+Stack+Diagram)
 
-### GCP Bucket for Data Storage
-- **Purpose**: Store the raw US Accidents dataset and processed intermediate files.
-- **Implementation**: Create a structured folder system for raw, processed, and archived data.
+The project leverages the following technologies:
 
-### Google BigQuery for Data Processing
-- **Purpose**: Perform heavy analytical queries and transformations on the accident data.
-- **Implementation**: Create tables for raw data, intermediate processing, and final analytical views.
+- **Docker + Apache Airflow**: For workflow orchestration and batch processing management
+- **Google Cloud Storage (GCS)**: Raw and processed data storage with structured bucket organization
+- **Google BigQuery**: Heavy-duty data processing and analytics with optimized partitioning and clustering
+- **Dataform**: Managing SQL transformation logic for accident data analysis
+- **Looker Studio**: Interactive visualization dashboards
 
-### Dataform for Transformations
-- **Purpose**: Manage SQL transformation logic for accident data analysis.
-- **Implementation**: Create repeatable transformation workflows with version control.
+## Project Structure
 
-### Looker Studio for Dashboards
-- **Purpose**: Create interactive visualizations of accident analytics.
-- **Implementation**: Build dashboards focusing on geographical hotspots, time patterns, and contributing factors.
+```
+us-accidents-pipeline/
+├── dags/                          # Apache Airflow DAG definitions
+│   ├── us_accidents_download.py   # DAG for downloading Kaggle dataset
+│   ├── us_accidents_chunk_csv.py  # DAG for splitting dataset into monthly chunks
+│   ├── simulate_monthly_uploads.py # DAG for simulating monthly batch processing
+│   └── us_accidents_load_to_bigquery.py # DAG for loading data to BigQuery
+├── data/                          # Directory for data files
+│   ├── raw/                       # Raw data downloaded from Kaggle
+│   └── chunks/                    # Monthly data chunks
+├── logs/                          # Airflow logs
+├── plugins/                       # Custom Airflow plugins
+├── dataform/                      # Dataform SQL transformation definitions
+│   ├── sources/
+│   ├── staging/
+│   ├── intermediate/
+│   └── analytics/
+├── docker-compose.yml             # Docker configuration
+├── setup-instructions.md          # DAG usage instructions
+└── README.md                      # This file
+```
 
-## Implementation Plan
+## Setup Instructions
 
-### 1. Data Understanding & Initial Setup (Week 1)
-- Download and explore the US Accidents dataset from Kaggle
-- Set up Docker environment with Apache Airflow
-- Create GCS bucket structure and BigQuery datasets
-- Define schema and data quality checks
+### Prerequisites
 
-### 2. Data Ingestion Pipeline (Week 1-2)
-- Create Airflow DAG to load the Kaggle dataset into GCS
-- Implement initial data validation checks
-- Set up batch processing schedule (e.g., weekly updates)
-- Load raw data into BigQuery staging tables
+- Docker and Docker Compose
+- Google Cloud Platform account
+- Kaggle account (for dataset access)
 
-### 3. Data Transformation (Week 2-3)
-- Set up Dataform project to transform accident data
-- Create transformations for:
-  - Geographical aggregations (accident hotspots by state, city, and road)
-  - Temporal analysis (time of day, day of week, seasonal patterns)
-  - Weather impact analysis
-  - Severity factor analysis
-  - Year-over-year trend analysis
+### Installation
 
-### 4. Analytics Layer (Week 3)
-- Create final analytical views in BigQuery
-- Set up aggregated tables for dashboard performance
-- Implement data refresh processes
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/us-accidents-pipeline.git
+   cd us-accidents-pipeline
+   ```
 
-### 5. Dashboard Development (Week 3-4)
-- Connect transformed data to Looker Studio
-- Create interactive maps of accident hotspots
-- Build visualizations for time-based patterns
-- Develop filtering capabilities for exploring different factors
+2. Set up your environment variables:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your GCP credentials and Kaggle API key
+   ```
 
-### 6. Testing, Documentation & Optimization (Week 4)
-- End-to-end testing of the pipeline
-- Document setup procedures and maintenance guidelines
-- Optimize BigQuery queries and Dataform transformations
-- Finalize dashboards and user guides
+3. Launch the environment:
+   ```bash
+   docker-compose up -d
+   ```
 
-## Specific Analysis Opportunities
+4. Access Airflow at http://localhost:8080 (username: airflow, password: airflow)
 
-### Geographical Analysis
-- Accident hotspot mapping at different geographical levels
-- Road segment risk scoring
-- Intersection danger analysis
-- Urban vs. rural accident pattern comparison
+5. Set up Airflow Variables:
+   - Go to Admin → Variables
+   - Add `gcs_bucket_name` with your GCS bucket name
+   - Add Kaggle credentials if using the download DAG
 
-### Temporal Analysis
-- Rush hour accident patterns
-- Weekend vs. weekday comparison
-- Holiday period risk assessment
-- Year-over-year trend analysis
+6. Configure GCP Connection:
+   - Go to Admin → Connections
+   - Add a new connection with ID `google_cloud_default`
+   - Set Connection Type to `Google Cloud`
+   - Add your GCP project ID and credentials
 
-### Contributing Factor Analysis
-- Weather impact on accident rates and severity
-- Construction zone accident patterns
-- Correlation between traffic volume and accidents
-- Impact of road features (junctions, crossing types) on accidents
+7. Start the pipeline by triggering the DAGs in sequence:
+   ```bash
+   # If starting from scratch with raw data download
+   docker-compose exec airflow airflow dags trigger us_accidents_download
+   
+   # To process monthly chunks
+   docker-compose exec airflow airflow dags trigger us_accidents_chunk_csv
+   
+   # To simulate monthly uploads to GCS
+   docker-compose exec airflow airflow dags trigger us_accidents_simulate_monthly_processing
+   
+   # To load data to BigQuery
+   docker-compose exec airflow airflow dags trigger us_accidents_load_to_bigquery
+   ```
 
-### Resource Allocation Insights
-- Optimal emergency response unit positioning
-- High-priority areas for traffic safety improvements
-- Peak times requiring increased patrol presence
+## Pipeline Workflow
 
-## Dashboard Examples
+![Pipeline Workflow](https://via.placeholder.com/800x500.png?text=Data+Pipeline+Workflow)
 
-1. **Safety Administrator Dashboard**
-   - Interactive map of accident hotspots
-   - Severity distribution charts
-   - Contributing factor analysis
-   - Year-over-year trend comparison
+The data pipeline follows these key steps:
 
-2. **Emergency Response Planning Dashboard**
-   - Hourly/daily accident frequency heat maps
+1. **Data Acquisition**: Downloads the US Accidents dataset from Kaggle
+2. **Data Processing**: Splits the large dataset into monthly chunks for easier processing
+3. **GCS Upload**: Uploads monthly data files to Google Cloud Storage
+4. **BigQuery Loading**: Loads data into partitioned and clustered BigQuery tables
+5. **Data Transformation**: Uses Dataform to transform raw data into analytical views
+6. **Data Visualization**: Creates interactive dashboards in Looker Studio
+
+## Monthly Simulation System
+
+A unique feature of this pipeline is the monthly simulation system, which:
+
+- Simulates processing historical data one month at a time
+- Uses Airflow's scheduling features to process data in sequence
+- Allows for testing and validation of the entire pipeline with controlled data volumes
+- Provides a framework for handling incremental data updates
+
+## BigQuery Integration
+
+The BigQuery implementation includes:
+
+- Partitioning by month for efficient querying of time-based data
+- Clustering by State and Severity for optimized geographical and severity-based analysis
+- Data quality inspection steps to validate loaded data
+- Foundation for advanced analytical views
+
+## Dataform Transformation Layer (In Progress)
+
+The transformation layer is being implemented with Dataform and includes:
+
+- Source definitions connecting to BigQuery raw tables
+- Staging views for initial data cleanup
+- Intermediate tables for specific analysis domains
+- Final analytical views for dashboard consumption
+
+### Key Transformations
+
+1. **Geographical Analysis**:
+   - Accident hotspot identification
+   - State and city-level aggregations
+   - Risk categorization
+
+2. **Temporal Analysis**:
+   - Time of day, day of week patterns
+   - Monthly and seasonal trends
+   - Year-over-year comparisons
+
+3. **Weather Impact Analysis**:
+   - Correlation between weather conditions and accidents
+   - Temperature, visibility, and precipitation impact analysis
+   - Seasonal weather pattern analysis
+
+## Dashboard Development (Planned)
+
+![Dashboard Example](https://via.placeholder.com/800x500.png?text=Accident+Hotspot+Dashboard)
+
+Three main dashboards are being developed:
+
+1. **Safety Administrator Dashboard**:
+   - Interactive maps of accident hotspots with filtering capabilities
+   - Severity distribution across different geographical areas
+   - Contributing factor correlation analysis
+   - Year-over-year trend comparison tools
+
+2. **Emergency Response Planning Dashboard**:
+   - Hourly and daily accident frequency heat maps
    - Weather impact visualizations
    - Response time optimization recommendations
-   - Seasonal pattern analysis
+   - Seasonal pattern analysis for resource planning
 
-3. **Urban Planning Dashboard**
-   - Road feature correlation with accidents
+3. **Urban Planning Dashboard**:
+   - Road feature correlation with accident frequency
    - Traffic control effectiveness metrics
    - Construction zone impact analysis
    - Before/after analysis of safety improvements
 
-## Technical Implementation Details
+## Implementation Timeline
 
-### Airflow DAG Structure
-- Data extraction and validation DAG (triggered on dataset update)
-- Weekly processing DAG for refreshing analytical views
-- Monthly reporting DAG for generating comprehensive reports
+![Project Timeline](https://via.placeholder.com/800x200.png?text=Project+Timeline)
 
-### BigQuery Table Design
-- Raw accident data table
-- Geocoded and enriched accident table
-- Aggregation tables (by location, time period, contributing factors)
-- Analytical views for dashboard consumption
+- **April 9-10, 2025**: Initial Setup Phase
+- **April 11-13, 2025**: Data Processing Phase
+- **April 14-15, 2025**: GCP Integration Phase
+- **April 16, 2025**: BigQuery Integration Phase
+- **April 17-25, 2025**: Transformation Development Phase (Current)
+- **April 26-May 9, 2025**: Analytics Layer & Dashboard Development Phase
+- **May 10-16, 2025**: Testing & Documentation Phase
 
-### Dataform Implementation
-- Core transformation SQL scripts
-- Data quality verification queries
-- Documentation of business logic
-- Testing assertions for data validation
+## Next Steps
 
+The immediate next steps for the project include:
+
+1. **Complete Dataform Setup**:
+   - Finalize transformation logic for geographical, temporal, and weather analysis
+   - Create analytical views for dashboard consumption
+
+2. **Develop Advanced Analytics**:
+   - Implement year-over-year comparison views
+   - Create road segment risk scoring
+   - Develop intersection danger analysis
+
+3. **Build Interactive Dashboards**:
+   - Connect transformed data to Looker Studio
+   - Create interactive maps and visualizations
+   - Implement filtering capabilities
+
+## Contact
+
+For questions or further information about this project, please contact:
+
+Your Name - [your.email@example.com](mailto:your.email@example.com)
+
+---
+
+*Last Updated: May 3, 2025*
