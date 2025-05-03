@@ -1,6 +1,6 @@
 # US Accidents Data Analysis Pipeline
 
-![Project Banner](https://via.placeholder.com/1200x300.png?text=US+Accidents+Data+Analysis+Pipeline)
+![Project Banner](![dataflow chart](https://github.com/user-attachments/assets/b7f97de4-cee1-486d-ada8-8a410af8c42e))
 
 ## Project Overview
 
