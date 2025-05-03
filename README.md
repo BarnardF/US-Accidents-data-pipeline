@@ -1,6 +1,5 @@
 # US Accidents Data Analysis Pipeline
 
-![dataflow chart](https://github.com/user-attachments/assets/6324862f-8da3-4dd2-960e-ca174de3cd1f)
 
 
 ## Project Overview
@@ -30,8 +29,6 @@ The project uses the comprehensive US Accidents (2016-2023) dataset from Kaggle,
 - [US Accidents Dataset on Kaggle](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents)
 
 ## Tech Stack
-
-![Tech Stack Diagram](https://via.placeholder.com/800x400.png?text=Tech+Stack+Diagram)
 
 The project leverages the following technologies:
 
@@ -122,7 +119,7 @@ us-accidents-pipeline/
 
 ## Pipeline Workflow
 
-![Pipeline Workflow](https://via.placeholder.com/800x500.png?text=Data+Pipeline+Workflow)
+![dataflow chart](https://github.com/user-attachments/assets/6324862f-8da3-4dd2-960e-ca174de3cd1f)
 
 The data pipeline follows these key steps:
 
@@ -179,7 +176,8 @@ The transformation layer is being implemented with Dataform and includes:
 
 ## Dashboard Development (Planned)
 
-![Dashboard Example](https://via.placeholder.com/800x500.png?text=Accident+Hotspot+Dashboard)
+![Screenshot (1399)](https://github.com/user-attachments/assets/9555b929-a91f-4a05-8049-94d27eee7ce5)
+
 
 Three main dashboards are being developed:
 
@@ -203,8 +201,6 @@ Three main dashboards are being developed:
 
 ## Implementation Timeline
 
-![Project Timeline](https://via.placeholder.com/800x200.png?text=Project+Timeline)
-
 - **April 9-10, 2025**: Initial Setup Phase
 - **April 11-13, 2025**: Data Processing Phase
 - **April 14-15, 2025**: GCP Integration Phase
@@ -213,29 +209,6 @@ Three main dashboards are being developed:
 - **April 26-May 9, 2025**: Analytics Layer & Dashboard Development Phase
 - **May 10-16, 2025**: Testing & Documentation Phase
 
-## Next Steps
-
-The immediate next steps for the project include:
-
-1. **Complete Dataform Setup**:
-   - Finalize transformation logic for geographical, temporal, and weather analysis
-   - Create analytical views for dashboard consumption
-
-2. **Develop Advanced Analytics**:
-   - Implement year-over-year comparison views
-   - Create road segment risk scoring
-   - Develop intersection danger analysis
-
-3. **Build Interactive Dashboards**:
-   - Connect transformed data to Looker Studio
-   - Create interactive maps and visualizations
-   - Implement filtering capabilities
-
-## Contact
-
-For questions or further information about this project, please contact:
-
-Your Name - [your.email@example.com](mailto:your.email@example.com)
 
 ---
 
