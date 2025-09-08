@@ -2,7 +2,7 @@
 
 
 
-## Project Overview
+## Project Overview - this readme file was made using ai
 
 This project implements a comprehensive data pipeline to process and analyze the US Accidents (2016-2023) dataset from Kaggle. Through batch processing techniques, raw accident data is transformed into actionable insights presented via interactive dashboards. These dashboards highlight accident hotspots, temporal patterns, and contributing factors that can drive improvements in road safety and traffic management.
 
