@@ -4,9 +4,9 @@
 
 ## Project Overview - this readme file was made using ai
 
-This project implements a comprehensive data pipeline to process and analyze the US Accidents (2016-2023) dataset from Kaggle. Through batch processing techniques, raw accident data is transformed into actionable insights presented via interactive dashboards. These dashboards highlight accident hotspots, temporal patterns, and contributing factors that can drive improvements in road safety and traffic management. A lot of the project was made using ai, as like a test to see how far i can get, a lot of times it was made clear to me that ai still has a long way to go and that i need to improve my own skills and knowlegde before trusting ai again.
+This project implements a comprehensive data pipeline to process and analyze the US Accidents (2016-2023) dataset from Kaggle. Using batch processing, raw accident data is transformed into actionable insights presented via interactive dashboards. These dashboards highlight accident hotspots, temporal patterns, and contributing factors that can drive improvements in road safety and traffic management. A lot of the project was made using ai, as a test to see how far i can get, a lot of times it was made clear to me that will not suffice and that i need to improve my own skills and knowlegde before using ai like in this project again.
 
-### 🏆 Key Accomplishments
+### Key Accomplishments
 
 - Successfully implemented an end-to-end data pipeline from data acquisition to visualization
 - Created a simulation system for processing historical monthly data
@@ -38,84 +38,6 @@ The project leverages the following technologies:
 - **Dataform**: Managing SQL transformation logic for accident data analysis
 - **Looker Studio**: Interactive visualization dashboards
 
-## Project Structure
-
-```
-us-accidents-pipeline/
-├── dags/                          # Apache Airflow DAG definitions
-│   ├── us_accidents_download.py   # DAG for downloading Kaggle dataset
-│   ├── us_accidents_chunk_csv.py  # DAG for splitting dataset into monthly chunks
-│   ├── simulate_monthly_uploads.py # DAG for simulating monthly batch processing
-│   └── us_accidents_load_to_bigquery.py # DAG for loading data to BigQuery
-├── data/                          # Directory for data files
-│   ├── raw/                       # Raw data downloaded from Kaggle
-│   └── chunks/                    # Monthly data chunks
-├── logs/                          # Airflow logs
-├── plugins/                       # Custom Airflow plugins
-├── dataform/                      # Dataform SQL transformation definitions
-│   ├── sources/
-│   ├── staging/
-│   ├── intermediate/
-│   └── analytics/
-├── docker-compose.yml             # Docker configuration
-├── setup-instructions.md          # DAG usage instructions
-└── README.md                      # This file
-```
-
-## Setup Instructions
-
-### Prerequisites
-
-- Docker and Docker Compose
-- Google Cloud Platform account
-- Kaggle account (for dataset access)
-
-### Installation
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/us-accidents-pipeline.git
-   cd us-accidents-pipeline
-   ```
-
-2. Set up your environment variables:
-   ```bash
-   cp .env.example .env
-   # Edit .env with your GCP credentials and Kaggle API key
-   ```
-
-3. Launch the environment:
-   ```bash
-   docker-compose up -d
-   ```
-
-4. Access Airflow at http://localhost:8080 (username: airflow, password: airflow)
-
-5. Set up Airflow Variables:
-   - Go to Admin → Variables
-   - Add `gcs_bucket_name` with your GCS bucket name
-   - Add Kaggle credentials if using the download DAG
-
-6. Configure GCP Connection:
-   - Go to Admin → Connections
-   - Add a new connection with ID `google_cloud_default`
-   - Set Connection Type to `Google Cloud`
-   - Add your GCP project ID and credentials
-
-7. Start the pipeline by triggering the DAGs in sequence:
-   ```bash
-   # If starting from scratch with raw data download
-   docker-compose exec airflow airflow dags trigger us_accidents_download
-   
-   # To process monthly chunks
-   docker-compose exec airflow airflow dags trigger us_accidents_chunk_csv
-   
-   # To simulate monthly uploads to GCS
-   docker-compose exec airflow airflow dags trigger us_accidents_simulate_monthly_processing
-   
-   # To load data to BigQuery
-   docker-compose exec airflow airflow dags trigger us_accidents_load_to_bigquery
-   ```
 
 ## Pipeline Workflow
 
