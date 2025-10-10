@@ -2,7 +2,7 @@
 
 
 
-## Project Overview - this readme file was made using ai(Claude)
+## Project Overview
 
 This project implements a comprehensive data pipeline to process and analyze the US Accidents (2016-2023) dataset from Kaggle. Using batch processing, raw accident data is transformed into actionable insights presented via interactive dashboards. These dashboards highlight accident hotspots, temporal patterns, and contributing factors that can drive improvements in road safety and traffic management. A lot of the project was made using ai, as a test to see how far i can get, a lot of times it was made clear to me that will not suffice and that i need to improve my own skills and knowlegde before using ai like in this project again.
 
@@ -131,6 +131,10 @@ Three main dashboards are being developed:
 - **April 26-May 9, 2025**: Analytics Layer & Dashboard Development Phase
 - **May 10-16, 2025**: Testing & Documentation Phase
 
+
+## Acknowledgment
+
+This README was created with the assistance of AI (ChatGPT by OpenAI) to ensure clarity and consistency.
 
 ---
 
