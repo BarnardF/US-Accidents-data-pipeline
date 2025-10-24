@@ -70,7 +70,7 @@ The BigQuery implementation includes:
 - Data quality inspection steps to validate loaded data
 - Foundation for advanced analytical views
 
-## Dataform Transformation Layer (In Progress)
+## Dataform Transformation Layer
 
 The transformation layer is being implemented with Dataform and includes:
 
@@ -96,7 +96,7 @@ The transformation layer is being implemented with Dataform and includes:
    - Temperature, visibility, and precipitation impact analysis
    - Seasonal weather pattern analysis
 
-## Dashboard Development (Planned)
+## Dashboard Development
 
 ![Screenshot (1399)](https://github.com/user-attachments/assets/9555b929-a91f-4a05-8049-94d27eee7ce5)
 
